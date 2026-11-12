@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strata Looper - Professional Multi-Track Audio Looper</title>
-    <meta name="description" content="Studio-quality multi-track looper for Android. Low latency, USB audio support, and creative effects.">
+    <meta name="description"
+        content="Studio-quality multi-track looper for Android. Low latency, USB audio support, and creative effects.">
     <style>
         :root {
-            --primary: #FF4444; /* Red accent matching the app */
+            --primary: #FF4444;
+            /* Red accent matching the app */
             --bg: #121212;
             --surface: #1E1E1E;
             --text: #E0E0E0;
             --text-secondary: #AAAAAA;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -21,24 +25,29 @@
             color: var(--text);
             line-height: 1.6;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
+
         header {
             padding: 40px 0;
             text-align: center;
         }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             color: #fff;
         }
+
         .subtitle {
             font-size: 1.2rem;
             color: var(--text-secondary);
         }
+
         .btn {
             display: inline-block;
             background-color: var(--primary);
@@ -50,57 +59,103 @@
             margin-top: 20px;
             transition: opacity 0.2s;
         }
+
         .btn:hover {
             opacity: 0.9;
         }
+
+        .btn.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            margin-left: 12px;
+        }
+
         section {
             background-color: var(--surface);
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 30px;
         }
+
         h2 {
             margin-top: 0;
             border-bottom: 1px solid #333;
             padding-bottom: 10px;
         }
+
         ul {
             padding-left: 20px;
         }
+
         li {
             margin-bottom: 10px;
         }
+
         .privacy-content {
             font-size: 0.95rem;
             color: var(--text-secondary);
         }
+
         footer {
             text-align: center;
             padding: 40px 20px;
             color: var(--text-secondary);
             font-size: 0.8rem;
         }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
         <header>
             <h1>Strata Looper</h1>
             <p class="subtitle">Professional Multi-Track Audio Looper for Android</p>
-            <a href="#" class="btn">Get it on Google Play</a>
+            <a href="https://play.google.com/store/apps/details?id=com.any.th.strata_live_loop" class="btn"
+                target="_blank">Get it on Google Play</a>
+            <a href="manual.html" class="btn secondary">User Manual</a>
         </header>
 
         <section id="features">
             <h2>Features</h2>
             <ul>
-                <li><strong>Pro Multi-Track Recording:</strong> Record up to 8 independent tracks with unlimited overdub layers.</li>
+                <li><strong>Pro Multi-Track Recording:</strong> Record up to 8 independent tracks with unlimited overdub
+                    layers.</li>
                 <li><strong>Zero-Latency Feel:</strong> Powered by a high-performance C++ audio engine.</li>
-                <li><strong>USB Audio Interface Support:</strong> Connect your interface and route inputs (Mono L/R or Stereo) to specific tracks.</li>
+                <li><strong>USB Audio Interface Support:</strong> Connect your interface and route inputs (Mono L/R or
+                    Stereo) to specific tracks.</li>
                 <li><strong>Creative Effects:</strong> Per-track Reverb and Delay to shape your sound.</li>
                 <li><strong>Live Performance Tools:</strong> Quantized Mute, Undo/Redo, and Input Monitoring.</li>
+            </ul>
+        </section>
+
+        <section id="licenses">
+            <h2>Open Source Licenses</h2>
+            <ul>
+                <li>
+                    <strong>Oboe</strong><br>
+                    High performance audio for Android.<br>
+                    Copyright 2018 The Android Open Source Project<br>
+                    Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache
+                        License, Version 2.0</a>
+                </li>
+                <li>
+                    <strong>Soundpipe</strong><br>
+                    Lightweight music DSP library for C.<br>
+                    Copyright (c) 2020 Paul Batchelor<br>
+                    Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT
+                        License</a>
+                </li>
             </ul>
         </section>
 
@@ -108,26 +163,33 @@
             <h2>Privacy Policy</h2>
             <div class="privacy-content">
                 <p><strong>Last updated: January 2, 2026</strong></p>
-                <p>This Application ("Strata Looper") is provided by us to you. This section informs you of our policies regarding the collection, use, and disclosure of Personal Information.</p>
+                <p>This Application ("Strata Looper") is provided by us to you. This section informs you of our policies
+                    regarding the collection, use, and disclosure of Personal Information.</p>
 
                 <h3>1. Information Collection and Use</h3>
 
                 <h4>Microphone Permission</h4>
                 <p>We request access to your device's Microphone (<code>RECORD_AUDIO</code>).</p>
                 <ul>
-                    <li><strong>Purpose:</strong> To capture audio for the core functionality of the app: recording loops and overdubbing tracks.</li>
-                    <li><strong>Data Handling:</strong> Audio data is processed locally on your device in real-time. We <strong>do not</strong> upload your audio recordings to any external server.</li>
+                    <li><strong>Purpose:</strong> To capture audio for the core functionality of the app: recording
+                        loops and overdubbing tracks.</li>
+                    <li><strong>Data Handling:</strong> Audio data is processed locally on your device in real-time. We
+                        <strong>do not</strong> upload your audio recordings to any external server.
+                    </li>
                 </ul>
 
                 <h4>Storage / File Access</h4>
                 <p>We may access your device's storage to save and load your audio projects.</p>
 
                 <h4>AdMob (Advertising)</h4>
-                <p>We use Google AdMob to display advertisements. AdMob may collect and use identifiers (like your Advertising ID) to serve ads.</p>
-                <p>AdMob Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+                <p>We use Google AdMob to display advertisements. AdMob may collect and use identifiers (like your
+                    Advertising ID) to serve ads.</p>
+                <p>AdMob Privacy Policy: <a href="https://policies.google.com/privacy"
+                        target="_blank">https://policies.google.com/privacy</a></p>
 
                 <h3>2. Data Retention</h3>
-                <p>We do not collect or retain any personal user data on our own servers. Audio files are stored locally on your device.</p>
+                <p>We do not collect or retain any personal user data on our own servers. Audio files are stored locally
+                    on your device.</p>
 
                 <h3>3. Contact Us</h3>
                 <p>If you have any questions about this Privacy Policy, please contact us at:</p>
@@ -136,9 +198,11 @@
         </section>
 
         <footer>
+            <p><a href="manual.html">User Manual</a></p>
             <p>&copy; 2026 Strata Looper. All rights reserved.</p>
         </footer>
     </div>
 
 </body>
+
 </html>
