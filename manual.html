@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strata Live Loop - User Manual</title>
+    <meta name="description" content="Complete user manual for Strata Live Loop, the multi-track audio looper for Android.">
+    <style>
+        :root {
+            --primary: #FF4444;
+            --bg: #121212;
+            --surface: #1E1E1E;
+            --text: #E0E0E0;
+            --text-secondary: #AAAAAA;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .version-bar {
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 32px;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .version-bar strong {
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        nav.toc {
+            background-color: var(--surface);
+            border-radius: 12px;
+            padding: 24px 30px;
+            margin-bottom: 30px;
+        }
+
+        nav.toc h2 {
+            border-bottom: none;
+            margin-bottom: 8px;
+        }
+
+        nav.toc ol {
+            margin: 0;
+            padding-left: 22px;
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        nav.toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav.toc a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            background-color: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        figure.phone img {
+            max-width: 300px;
+        }
+
+        figure.wide img {
+            max-width: 620px;
+        }
+
+        figcaption {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .figrow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .figrow figure {
+            flex: 0 1 auto;
+            margin: 8px 0;
+        }
+
+        ol.legend {
+            text-align: left;
+            max-width: 520px;
+            margin: 12px auto 0;
+        }
+
+        .num {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            width: 1.5em;
+            height: 1.5em;
+            line-height: 1.5em;
+            text-align: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .tip {
+            border-left: 3px solid var(--primary);
+            padding: 8px 16px;
+            margin: 16px 0;
+            background: rgba(255, 68, 68, 0.07);
+            border-radius: 0 8px 8px 0;
+        }
+
+        table.keys {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        table.keys td,
+        table.keys th {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid #333;
+            vertical-align: top;
+        }
+
+        table.keys th {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .changelog-ver {
+            margin-top: 24px;
+        }
+
+        .changelog-ver h3 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 6px;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 20px 0 40px;
+        }
+
+        @media (max-width: 600px) {
+            nav.toc ol {
+                column-count: 1;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Strata Live Loop</h1>
+            <p class="subtitle">User Manual</p>
+        </header>
+
+        <div class="version-bar">
+            <span><strong>Manual</strong> v1.0</span>
+            <span><strong>Covers app</strong> v2.7.0</span>
+            <span><a href="https://play.google.com/store/apps/details?id=com.any.th.strata_live_loop">Get the latest version on Google Play</a></span>
+        </div>
+
+        <nav class="toc">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#calibration">Calibration</a></li>
+                <li><a href="#top-bar">Top Bar</a></li>
+                <li><a href="#track-cards">Track Card</a></li>
+                <li><a href="#track-states">Track States</a></li>
+                <li><a href="#track-menu">Track Menu</a></li>
+                <li><a href="#metronome">Metronome</a></li>
+                <li><a href="#bar-settings">Bar Settings</a></li>
+                <li><a href="#effects">Audio Effects</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#performance-recording">Performance Recording</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#help">Help &amp; Tutorial</a></li>
+                <li><a href="#changelog">Manual Changelog</a></li>
+            </ol>
+        </nav>
+
+        <section id="getting-started">
+            <h2>1. Getting Started</h2>
+            <p>Strata Live Loop is a multi-track looper. Each track records and loops
+                audio independently &mdash; up to 8 tracks. The first loop you record becomes the <strong>main track</strong>
+                (marked with <code>*</code>) and defines the tempo grid that all other tracks quantize to.</p>
+
+            <figure class="phone">
+                <img src="images/manual/main-idle.png" alt="Main screen with four empty tracks">
+                <figcaption>The main screen: top bar on top, one card per track, version at the bottom.</figcaption>
+            </figure>
+
+            <h3>One-time setup: calibrate</h3>
+            <p>Every device has different audio latency. Run <a href="#calibration">Calibration</a>
+                once so your loops land exactly on the grid &mdash; it only takes a tap.</p>
+
+            <h3>Record your first loop</h3>
+            <ol>
+                <li>Tap the center button of any track &mdash; recording starts immediately and the red arc
+                    sweeps around the ring.</li>
+                <li>Tap the center button again to close the loop. It starts playing in sync right away.</li>
+                <li>Record the next track by tapping its center button. Because a main loop now exists,
+                    the new recording is <em>armed</em> &mdash; it begins exactly at the next bar boundary.</li>
+            </ol>
+            <div class="tip">
+                Use the <a href="#metronome">Metronome</a> before your first take &mdash; a timed first loop
+                keeps every layer tight. You can also render the click onto a track with
+                <em>Add to Track</em>.
+            </div>
+        </section>
+
+        <section id="calibration">
+            <h2>2. Calibration</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-calibration.png" alt="Calibration dialog">
+            </figure>
+            <p>Audio input/output latency differs per device. Calibration compensates so loops land
+                exactly on the grid &mdash; run it once before your first take.</p>
+            <ul>
+                <li><strong>Latency / offsets</strong> &mdash; measured latency plus the automatic
+                    (<code>auto=</code>) and manual (<code>user=</code>) compensations in frames and ms.</li>
+                <li><strong>Auto Calibrate</strong> &mdash; measures round-trip latency and applies it.</li>
+                <li><strong>Manual Calibrate</strong> &mdash; plays a metronome click, records it through
+                    the mic, and lets you align the overlaid waveforms with &plusmn;1&nbsp;ms / &plusmn;10&nbsp;ms
+                    buttons.</li>
+                <li><strong>Clear</strong> &mdash; resets the user offset.</li>
+            </ul>
+            <div class="tip">Re-run Auto Calibrate when you switch between the built-in mic, a headset,
+                or a USB audio interface &mdash; or enable <em>Auto-Adjust Latency on Device Change</em> in
+                <a href="#settings">Settings</a>.</div>
+        </section>
+
+        <section id="top-bar">
+            <h2>3. Top Bar</h2>
+            <p>The top bar holds global actions plus live status indicators. It is horizontally
+                scrollable &mdash; swipe it to reveal every item below.</p>
+
+            <figure class="wide">
+                <img src="images/manual/topbar.png" alt="Top bar, first nine items">
+                <figcaption>The first nine items, left to right.</figcaption>
+            </figure>
+            <ol class="legend" start="1">
+                <li><strong>Calibration</strong> &mdash; latency measurement and alignment (<a href="#calibration">details</a>).</li>
+                <li><strong>Metronome</strong> &mdash; tempo, time signature, click loops (<a href="#metronome">details</a>).</li>
+                <li><strong>Clear</strong> &mdash; clears all loops on all tracks.</li>
+                <li><strong>Bar Settings</strong> &mdash; bar count per track; enabled after the main loop is recorded (<a href="#bar-settings">details</a>).</li>
+                <li><strong>Effects</strong> &mdash; per-track effect chain and master volume (<a href="#effects">details</a>).</li>
+                <li><strong>Project</strong> &mdash; save and load sessions (<a href="#projects">details</a>). Disabled while recording.</li>
+                <li><strong>Play / Stop</strong> &mdash; starts or stops the whole loop engine. Enabled once any loop exists.</li>
+                <li><strong>Record</strong> &mdash; records the live performance (audio and/or video) to a file (<a href="#performance-recording">details</a>).</li>
+                <li><strong>Settings</strong> &mdash; app configuration (<a href="#settings">details</a>).</li>
+            </ol>
+
+            <figure class="wide">
+                <img src="images/manual/topbar-end.png" alt="Top bar scrolled to the end">
+                <figcaption>Scrolled to the end: Help, battery, and performance meters.</figcaption>
+            </figure>
+            <ol class="legend" start="10">
+                <li><strong>Help (?)</strong> &mdash; opens the tutorial popup (<a href="#help">details</a>).</li>
+                <li><strong>Battery</strong> &mdash; charge level; shows a lightning bolt while charging
+                    and turns red below 20%.</li>
+                <li><strong>CPU meter (C:%)</strong> &mdash; audio CPU load relative to one core; green
+                    under 70%, yellow to 90%, red above.</li>
+                <li><strong>Dropouts</strong> &mdash; <em>OK</em> means clean audio;
+                    <em>Glitch:N</em> counts audio dropouts (xruns).</li>
+                <li><strong>App memory (M:MB)</strong> &mdash; app memory footprint (PSS).</li>
+                <li><strong>System memory (T:used/total)</strong> &mdash; device RAM pressure; turns red
+                    when the system is low on memory.</li>
+            </ol>
+            <p>Watch <span class="num">12</span> and <span class="num">13</span> while looping &mdash;
+                sustained red or rising glitch counts mean the device is struggling; lower the
+                <em>Animation FPS</em> in <a href="#settings">Settings</a> to lighten the load.</p>
+        </section>
+
+        <section id="track-cards">
+            <h2>4. Track Card</h2>
+            <p>Each track is a card with a loop ring, a center button, and a swipeable two-page menu.</p>
+
+            <figure class="phone">
+                <img src="images/manual/track-card.png" alt="Track card anatomy">
+            </figure>
+            <ol class="legend">
+                <li><strong>Center button</strong> &mdash; the main action. Shows track number, bar count,
+                    and state (<code>T1 B1</code> = Track&nbsp;1, 1&nbsp;bar). A <code>*</code> marks the main track.</li>
+                <li><strong>Loop ring</strong> &mdash; shows loop progress, playhead, waveform, and the sync
+                    marker (yellow dot: the main loop's position, where quantized actions land).</li>
+                <li><strong>Track menu</strong> &mdash; a two-page pager of action buttons; swipe it to
+                    switch pages (<a href="#track-menu">details</a>).</li>
+            </ol>
+
+            <h3>Gestures</h3>
+            <table class="keys">
+                <tr><th>Gesture</th><th>Action</th></tr>
+                <tr>
+                    <td>Tap center</td>
+                    <td>Record &rarr; close loop &rarr; overdub &rarr; stop overdub. While a main loop exists,
+                        tapping an empty track arms recording for the next bar boundary; tap again to cancel.</td>
+                </tr>
+                <tr>
+                    <td>Tap ring</td>
+                    <td>Mute / unmute the track instantly.</td>
+                </tr>
+                <tr>
+                    <td>Long-press ring</td>
+                    <td>Quantized mute &mdash; mute/unmute happens at the next bar boundary (button pulses
+                        until it applies).</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="track-states">
+            <h2>5. Track States</h2>
+            <div class="figrow">
+                <figure class="phone">
+                    <img src="images/manual/state-recording.png" alt="Track recording">
+                    <figcaption><span class="num">1</span>Recording &mdash; the red arc sweeps once per
+                        bar until you close the loop.</figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/state-playing.png" alt="Track playing">
+                    <figcaption><span class="num">1</span>Playing &mdash; the green arc is the playhead
+                        moving through the loop.</figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/state-overdub.png" alt="Track overdubbing">
+                    <figcaption><span class="num">1</span>Overdubbing &mdash; layers new audio on top of
+                        the existing loop.</figcaption>
+                </figure>
+            </div>
+            <p>Muted tracks dim and show <em>Muted</em> on the center button. Queued (quantized) actions
+                pulse until they apply at the bar boundary.</p>
+        </section>
+
+        <section id="track-menu">
+            <h2>6. Track Menu</h2>
+            <p>Beneath each track card sits a <strong>two-page pager</strong> of action buttons &mdash;
+                swipe the button area sideways to switch pages; the dots below show the current page.</p>
+
+            <h3>Page 1 &mdash; Edit actions</h3>
+            <figure class="phone">
+                <img src="images/manual/track-menu-page1.png" alt="Track menu page 1">
+            </figure>
+            <ol class="legend">
+                <li><strong>Clear</strong> &mdash; erases the track's loop and all its takes.</li>
+                <li><strong>Overdub Volume</strong> &mdash; opens <em>Adjust Overdub</em> to set the gain of
+                    the adjustable take (<a href="#overdub-adjust">details</a>).</li>
+                <li><strong>Undo</strong> &mdash; removes the last overdub take. When the track has
+                    <strong>no loop yet</strong>, has more than 1 bar, and the main loop is playing,
+                    this becomes <em>Bar Back</em> instead.</li>
+                <li><strong>Redo</strong> &mdash; restores an undone take, or <em>Bar Forward</em> under
+                    the same conditions.</li>
+                <li><strong>Page dots</strong> &mdash; current page; swipe left for page 2.</li>
+            </ol>
+            <p><em>Bar Back / Bar Forward</em> appear on an <strong>empty multi-bar track while the
+                main loop plays</strong>: they shift the track's bar-cycle start point bar-by-bar,
+                choosing where an armed recording lands relative to the master grid.</p>
+
+            <h3 id="overdub-adjust">Adjust Overdub</h3>
+            <figure class="phone">
+                <img src="images/manual/dialog-take.png" alt="Adjust Overdub dialog">
+            </figure>
+            <p>Each take keeps its own volume (0&ndash;200%). The slider edits whichever take sits on
+                top of the undo history &mdash; the newest overdub, or the base take when there are no
+                overdubs. To re-tune an earlier layer later, <em>Undo</em> back to it, open
+                <em>Adjust Overdub</em>, and set its level; <em>Redo</em> brings you forward again.</p>
+            <p>A track holds the base take plus up to <strong>4 overdub layers</strong>. Recording a
+                fifth merges the oldest layer into the base take &mdash; nothing is lost, but it can no
+                longer be undone or adjusted separately.</p>
+
+            <h3>Page 2 &mdash; FX &amp; Solo</h3>
+            <figure class="phone">
+                <img src="images/manual/track-menu-page2.png" alt="Track menu page 2 with FX and Solo">
+            </figure>
+            <ol class="legend" start="6">
+                <li><strong>FX On/Off</strong> &mdash; enables or bypasses the track's effect chain.
+                    Highlighted when active. Tap for instant toggle; <em>long-press</em> to apply at the
+                    next bar boundary.</li>
+                <li><strong>Solo (S)</strong> &mdash; solos the track (mutes all others). Tap for instant;
+                    <em>long-press</em> for bar-boundary quantized toggle.</li>
+                <li><strong>Page dots</strong> &mdash; current page; swipe right for page 1.</li>
+            </ol>
+        </section>
+
+        <section id="metronome">
+            <h2>7. Metronome</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-metronome.png" alt="Metronome dialog">
+            </figure>
+            <ul>
+                <li><strong>Tempo</strong> &mdash; BPM field or <em>Tap Tempo</em> to set it by tapping.</li>
+                <li><strong>Time Sig</strong> &mdash; 4/4, 3/4, 6/8 or a custom signature.</li>
+                <li><strong>Bars</strong> &mdash; click loop length: 1, 2, 4 or custom.</li>
+                <li><strong>Track</strong> &mdash; which track the click belongs to.</li>
+                <li><strong>Add to Track N</strong> &mdash; renders the click pattern as a loop onto that
+                    track. With no loops yet, it becomes the main track and sets the tempo grid &mdash; the
+                    easiest way to get a perfectly timed first take.</li>
+            </ul>
+        </section>
+
+        <section id="bar-settings">
+            <h2>8. Bar Settings</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-bar.png" alt="Bar settings dialog">
+            </figure>
+            <h3>The main track</h3>
+            <p>The <strong>first loop you record becomes the main track</strong> (marked
+                <code>*</code>) &mdash; its length defines one bar for the whole session. Every other
+                track's grid, quantized actions, and bar counts are fractions or multiples of it.</p>
+            <p>If you <strong>clear the main track</strong>, the engine promotes another track with a
+                loop &mdash; the one with the smallest bar count that can still represent every
+                remaining track. Its length becomes the new bar, and all other tracks' bar counts are
+                <strong>re-based</strong> so their relationships survive (e.g. a 4-bar layer next to a
+                2-bar main becomes a 2-bar layer). If no loops remain, everything resets.</p>
+
+            <h3>Changing bar counts</h3>
+            <ul>
+                <li>Pick a track, then a length: 1/8, 1/4, 1/2, 1, 2, 4, 8, 16, or 32 bars of the
+                    main bar.</li>
+                <li>The <strong>main track is always 1 bar</strong> &mdash; its own count and offset
+                    can't be edited.</li>
+                <li><strong>Clear the track first</strong> &mdash; bar count is locked while a loop
+                    exists, and changing it resets the track's bar offset.</li>
+                <li>Limits: re-based counts clamp to 1/8&ndash;32 bars. If a surviving loop is too
+                    short relative to a new main (&gt;32:1), it is <strong>auto-muted</strong> so it
+                    can't play a corrupted length.</li>
+                <li>Bar offset (<a href="#track-menu">Bar Back / Forward</a>) is only available on
+                    empty multi-bar tracks &mdash; never on the main track.</li>
+            </ul>
+        </section>
+
+        <section id="effects">
+            <h2>9. Audio Effects</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-fx.png" alt="Audio FX dialog">
+            </figure>
+            <ul>
+                <li><strong>Master Vol</strong> &mdash; output volume for the whole mix.</li>
+                <li><strong>Trk 1&ndash;8 + Gain</strong> &mdash; per-track gain, one selector per
+                    active track. <em>Reset Track</em> and <em>Reset All</em> restore defaults.</li>
+                <li><strong>Effect Chain</strong> &mdash; the processing order (IN &rarr; LP &rarr; HP &rarr;
+                    EQ &rarr; DST &rarr; &hellip;). <em>Hold and drag</em> a block to reorder the chain.</li>
+                <li><strong>Filters / Dynamics / Mod-FX tabs</strong> &mdash; enable effects per category:
+                    low-pass, high-pass, 5-band EQ (100/400/1k/3k/8k&nbsp;Hz), compressor, distortion,
+                    chorus, delay, auto-tune (beta), and more.</li>
+            </ul>
+            <p>Toggle a track's whole chain live with the <a href="#track-menu">FX button on menu page 2</a>.</p>
+        </section>
+
+        <section id="projects">
+            <h2>10. Projects</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-project.png" alt="Project dialog">
+            </figure>
+            <ul>
+                <li><strong>Save</strong> &mdash; name the session and store it as a <code>.stp</code> file:
+                    all tracks, overdub layers, per-track FX and chain order, bar counts/offsets, mute/solo
+                    states, master gain, and calibration.</li>
+                <li><strong>Open / Browse .stp file&hellip;</strong> &mdash; load a saved session back onto
+                    the tracks.</li>
+            </ul>
+            <p>The button is only enabled when the engine is idle &mdash; stop and finish recordings first.</p>
+        </section>
+
+        <section id="performance-recording">
+            <h2>11. Performance Recording</h2>
+            <p>The red <strong>Record</strong> button in the top bar captures your live performance to a
+                file &mdash; separate from loop recording.</p>
+            <ul>
+                <li>Shows a countdown, then a blinking indicator and elapsed time while recording.</li>
+                <li>Tap again to stop. Files go to the folder set in
+                    <a href="#settings">Settings &rarr; Recording</a>.</li>
+                <li>Choose <em>Audio</em> (WAV), <em>Video</em> (MP4, always with audio), or
+                    <em>Both</em> (separate MP4 + WAV files), and the video/audio quality
+                    (Low/Med/High) in the same tab.</li>
+            </ul>
+        </section>
+
+        <section id="settings">
+            <h2>12. Settings</h2>
+            <p>Five tabs &mdash; <strong>General</strong>, <strong>Recording</strong>,
+                <strong>Track</strong>, <strong>Controller</strong>, <strong>About</strong>. The dialog
+                reopens on the last-used tab, at the same scroll position.</p>
+
+            <h3>General</h3>
+            <div class="figrow">
+                <figure class="phone">
+                    <img src="images/manual/settings-general.png" alt="Settings - General tab">
+                    <figcaption><strong>Top of the tab</strong></figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/settings-general-advanced.png" alt="Settings - Advanced input list expanded">
+                    <figcaption><strong>Advanced (Beta) expanded</strong></figcaption>
+                </figure>
+            </div>
+            <ul>
+                <li><strong>Smart Loop Alignment (Beta)</strong> &mdash; auto-splices your first loop so
+                    its timing lands seamlessly on the grid. On by default.</li>
+                <li><strong>Auto-Adjust Latency on Device Change</strong> &mdash; switches to automatic
+                    latency compensation when you plug in or unplug an audio device.</li>
+                <li><strong>Animation FPS</strong> &mdash; <em>30 (Saver)</em> or <em>60 (Smooth)</em> for
+                    the ring and waveform animations.</li>
+                <li><strong>Track count</strong> &mdash; 1, 2, 4, 6, or 8 track cards. Locked while
+                    any loop exists &mdash; clear all loops first.</li>
+                <li><strong>Accent Color</strong> &mdash; 8 preset swatches or a custom hue slider;
+                    recolors buttons, rings, and the record arc.</li>
+                <li><strong>Input gain</strong> &mdash; recording level slider, 0&ndash;4.0&times;.</li>
+                <li><strong>Default (Auto)</strong> input &mdash; the <em>MON</em> button toggles input
+                    monitoring (hear your live input); the bar under the active input shows its live
+                    level.</li>
+                <li><strong>Advanced (Beta)</strong> &mdash; expands to list every detected input device.
+                    Checked devices appear in the <a href="#settings">Track tab</a> input selectors,
+                    each with its own <em>MON</em> toggle.</li>
+            </ul>
+
+            <h3>Recording</h3>
+            <figure class="phone">
+                <img src="images/manual/settings-recording.png" alt="Settings - Recording tab">
+            </figure>
+            <ul>
+                <li><strong>Folder</strong> &mdash; where <a href="#performance-recording">performance
+                    recordings</a> are saved. <em>Choose</em> picks any folder via the system picker;
+                    <em>Reset</em> returns to the default app folder.</li>
+                <li><strong>Record file</strong> &mdash; what the top-bar Record button captures:
+                    <em>Audio</em> saves a WAV; <em>Video</em> saves an MP4 (video always includes
+                    the audio track); <em>Both</em> saves <strong>two separate files</strong> &mdash;
+                    the MP4 plus a standalone WAV.</li>
+                <li><strong>Show touches</strong> &mdash; draws tap/long-press/drag indicators into
+                    recordings. The <em>&rdca; Always</em> sub-option shows them even when not
+                    recording.</li>
+                <li><strong>Record video quality</strong> &mdash; Low (720p &middot; 2&nbsp;Mbps),
+                    Med (1280p &middot; 4&nbsp;Mbps), or High (1920p &middot; 12&nbsp;Mbps).</li>
+                <li><strong>Record audio quality</strong> &mdash; Low (96&nbsp;kbps), Med (192&nbsp;kbps),
+                    or High (320&nbsp;kbps).</li>
+                <li><strong>Processing</strong> &mdash; appears while a video is being muxed/saved, with
+                    a progress bar per job. Processing continues in the background if you leave the
+                    app.</li>
+                <li><strong>Cache</strong> &mdash; space used by temporary recording files, with a
+                    <em>Clear cache</em> button.</li>
+            </ul>
+
+            <h3>Track</h3>
+            <div class="figrow">
+                <figure class="phone">
+                    <img src="images/manual/settings-track.png" alt="Settings - Track tab, apply-to-all">
+                    <figcaption><strong>Apply to all: on</strong></figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/settings-track-pertrack.png" alt="Settings - per-track input routing">
+                    <figcaption><strong>Apply to all: off</strong></figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/settings-track-noisegate.png" alt="Settings - Noise Gate enabled">
+                    <figcaption><strong>Noise Gate enabled</strong></figcaption>
+                </figure>
+            </div>
+            <ul>
+                <li><strong>Apply to all tracks</strong> <em>(beta)</em> &mdash; use one input source for
+                    every track instead of per-track routing. Turning it on also copies track&nbsp;1's
+                    noise-gate settings to all tracks.</li>
+                <li><strong>Auto-switch headset</strong> <em>(beta)</em> &mdash; automatically selects a
+                    headset mic when one connects. Requires <em>Apply to all tracks</em>; the input
+                    picker below is disabled while it's on.</li>
+                <li><strong>Input Source</strong> &mdash; with <em>Apply to all</em>: one device picker
+                    for the whole session. Off: a picker per track, plus a <em>Stereo / L / R</em>
+                    channel-routing toggle for stereo inputs (record the full stereo image, or just the
+                    left/right channel).</li>
+                <li><strong>Noise Gate</strong> &mdash; silences input below a threshold to cut
+                    background noise from recordings. One global set with <em>Apply to all</em>, or
+                    per-track controls:
+                    <ul>
+                        <li><strong>Enable</strong> &mdash; gate on/off.</li>
+                        <li><strong>Threshold</strong> &mdash; &minus;80 to 0&nbsp;dB; input below this
+                            level is gated.</li>
+                        <li><strong>Release</strong> &mdash; 10&ndash;500&nbsp;ms; how fast the gate
+                            closes after the signal drops.</li>
+                        <li><strong>Range</strong> &mdash; 0&ndash;100%; how much of the gated signal is
+                            attenuated (100% = fully silent).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Controller</h3>
+            <div class="figrow">
+                <figure class="phone">
+                    <img src="images/manual/settings-controller.png" alt="Settings - Controller tab, disabled">
+                    <figcaption><strong>Controller off</strong></figcaption>
+                </figure>
+                <figure class="phone">
+                    <img src="images/manual/settings-controller-enabled.png" alt="Settings - Controller enabled, mapping panel">
+                    <figcaption><strong>Controller enabled</strong></figcaption>
+                </figure>
+            </div>
+            <ul>
+                <li><strong>Enable Controller</strong> &mdash; master switch for MIDI controllers
+                    (USB/Bluetooth), keyboards, and gamepads.</li>
+                <li><strong>Connected Devices</strong> &mdash; lists detected MIDI devices. Keyboard
+                    input always works.</li>
+                <li><strong>Mapping Mode</strong> &mdash; <em>Single Track</em>: one set of action keys
+                    plus track-select keys (one per track) that pick which track they drive; the selected
+                    track shows a yellow border. <em>All Tracks</em>: a dedicated set of buttons for each
+                    track.</li>
+                <li><strong>Overdub Volume Mode</strong> &mdash; <em>Slider (CC)</em>: map a MIDI
+                    fader/knob to overdub volume. <em>Up/Down Keys</em>: use two buttons to nudge
+                    it.</li>
+                <li><strong>Button Mappings</strong> &mdash; tap an action to assign a key/pad,
+                    long-press to clear. Assignable: Record, Mute, Solo, FX&nbsp;On/Off, Clear, Undo,
+                    Redo, and Overdub Volume (or Up/Down).</li>
+                <li><strong>Presets</strong> &mdash; save the current mapping under a name; reload or
+                    delete presets from the dropdown.</li>
+            </ul>
+
+            <h3>About</h3>
+            <figure class="phone">
+                <img src="images/manual/settings-about.png" alt="Settings - About tab">
+            </figure>
+            <ul>
+                <li><strong>Version</strong> &mdash; installed app version.</li>
+                <li><strong>What's New</strong> &mdash; expandable per-version changelog going back to
+                    v1.14: new features, improvements, and bug fixes for each release.</li>
+            </ul>
+        </section>
+
+        <section id="help">
+            <h2>13. Help &amp; Tutorial</h2>
+            <figure class="phone">
+                <img src="images/manual/dialog-tutorial.png" alt="Tutorial dialog">
+            </figure>
+            <p>The <strong>?</strong> button at the end of the top bar opens the built-in tutorial:
+                <em>Getting Started</em>, <em>Playback &amp; Mute</em>, and <em>Advanced</em> quick help.
+                It also appears on first launch (dismiss permanently with <em>Don't show again</em>).</p>
+            <p>The tutorial footer contains the <strong>Full Manual</strong> button, which opens this page.</p>
+        </section>
+
+        <section id="changelog">
+            <h2>14. Manual Changelog</h2>
+            <p>Each app release updates this manual. Entries below link new UI to the section that
+                documents it.</p>
+
+            <div class="changelog-ver" id="v2-7-0">
+                <h3>v1.0 &mdash; covers app 2.7.0</h3>
+                <ul>
+                    <li>Initial manual covering the full app.</li>
+                    <li>New in 2.7.0 &mdash; <a href="#projects">Projects</a> (save/load sessions),
+                        <a href="#effects">5-band EQ and effect-chain reorder</a>, Auto-Tune key/scale
+                        detection, muted ad start.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Manual v1.0 &middot; for Strata Live Loop 2.7.0 &middot;
+                <a href="index.html">Back to home</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
