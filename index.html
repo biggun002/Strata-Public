@@ -7,14 +7,21 @@
     <title>Strata Looper - Professional Multi-Track Audio Looper</title>
     <meta name="description"
         content="Studio-quality multi-track looper for Android. Low latency, USB audio support, and creative effects.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
-            --primary: #FF4444;
-            /* Red accent matching the app */
-            --bg: #121212;
-            --surface: #1E1E1E;
-            --text: #E0E0E0;
-            --text-secondary: #AAAAAA;
+            /* Palette mirrors the app's default dark theme (LooperTheme.kt) */
+            --primary: #6366F1;
+            /* Default app accent — user-changeable in Settings */
+            --primary-hover: #8184F7;
+            --bg: #0A0A0F;
+            --surface: #14141F;
+            --surface-variant: #1C1C2A;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #F0F0F5;
+            --text-secondary: #B8B8C8;
+            --accent-cyan: #22D3EE;
+            --accent-pink: #F472B6;
         }
 
         body {
@@ -37,15 +44,75 @@
             text-align: center;
         }
 
+        .logo {
+            width: 96px;
+            height: 96px;
+            border-radius: 22%;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 28px rgba(99, 102, 241, 0.28);
+        }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            color: #fff;
+            color: var(--text);
         }
 
         .subtitle {
             font-size: 1.2rem;
             color: var(--text-secondary);
+        }
+
+        .version-pill {
+            display: inline-block;
+            background: var(--surface-variant);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-top: 14px;
+        }
+
+        details {
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+
+        details:last-child {
+            border-bottom: none;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        details .group {
+            margin: 12px 0 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        details ul {
+            margin: 6px 0;
+        }
+
+        details li {
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        details.cl-section>summary {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .btn {
@@ -61,7 +128,7 @@
         }
 
         .btn:hover {
-            opacity: 0.9;
+            background-color: var(--primary-hover);
         }
 
         .btn.secondary {
@@ -71,8 +138,14 @@
             margin-left: 12px;
         }
 
+        .btn.secondary:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
         section {
             background-color: var(--surface);
+            border: 1px solid var(--border);
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 30px;
@@ -80,7 +153,7 @@
 
         h2 {
             margin-top: 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
         }
 
@@ -119,11 +192,15 @@
 
     <div class="container">
         <header>
+            <img src="images/logo.jpg" alt="Strata Looper logo" class="logo">
             <h1>Strata Looper</h1>
             <p class="subtitle">Professional Multi-Track Audio Looper for Android</p>
-            <a href="https://play.google.com/store/apps/details?id=com.any.th.strata_live_loop" class="btn"
-                target="_blank">Get it on Google Play</a>
-            <a href="manual.html" class="btn secondary">User Manual</a>
+            <div>
+                <a href="https://play.google.com/store/apps/details?id=com.any.th.strata_live_loop" class="btn"
+                    target="_blank">Get it on Google Play</a>
+                <a href="manual.html" class="btn secondary">User Manual</a>
+            </div>
+            <span class="version-pill">v2.8.0</span>
         </header>
 
         <section id="features">
@@ -137,6 +214,290 @@
                 <li><strong>Creative Effects:</strong> Per-track Reverb and Delay to shape your sound.</li>
                 <li><strong>Live Performance Tools:</strong> Quantized Mute, Undo/Redo, and Input Monitoring.</li>
             </ul>
+        </section>
+
+        <section id="changelog">
+            <details class="cl-section">
+                <summary>What's New</summary>
+
+                <details open>
+                <summary>Version 2.8.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>New detailed user manual — open it from the Help tutorial's "Open Manual"
+                        button.</li>
+                    <li>Accent color: pick a preset accent or dial in a custom hue in Settings →
+                        General.</li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Lower audio-callback CPU cost and a more responsive UI under heavy audio load.
+                    </li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed EQ chip disappearing after resetting the effect chain to defaults.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.7.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Save &amp; load projects: capture the full session — all tracks, overdub
+                        layers, per-track FX and chain order, bar counts/offsets, mute/solo states,
+                        master gain, and calibration.</li>
+                    <li>5-band graphic EQ per track: 100/400/1k/3k/8kHz peaking bands.</li>
+                    <li>Auto-Tune key &amp; scale detection: analyze a recorded track and apply the
+                        detected key/scale.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed effect-order reorder being silently dropped in some cases.</li>
+                    <li>Ads now start muted.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.6.0</summary>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed bar count reset when main track is cleared with large bar difference
+                        between tracks. Improved logic for selecting new main track to prevent bar
+                        count overflow and auto-mute tracks that would be truncated.</li>
+                    <li>Fixed no-sound in screen recording on some devices.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.5.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Auto-Tune Effect (BETA): Real-time pitch correction with YIN pitch detection,
+                        11 scale options, formant preservation, humanize, tolerance, T-Pain mode, and
+                        adjustable smoothness.</li>
+                    <li>Manual Latency Calibration: Play metronome and record mic simultaneously,
+                        then align overlaid waveforms with ±1ms/±10ms buttons in real-time.</li>
+                    <li>Multi-Page Track Menu: Menu is swipeable now for accessing multiple pages.
+                    </li>
+                    <li>New Track Menus: Per-track solo and quantized FX on/off toggle. Tap for
+                        instant action, long-press for bar-boundary quantized toggle.</li>
+                    <li>Fractional Bar Counts: Track lengths now support 1/8, 1/4, and 1/2 bar values
+                        alongside whole bars.</li>
+                    <li>Record File Mode Selector: Three-way selector (Audio, Video, Both) replacing
+                        the old video record toggle.</li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Real-Time Video+Audio Muxing: Encodes video and audio into a single MP4 in
+                        real-time on Android 10+, eliminating post-recording muxing.</li>
+                    <li>Monitor FX During Recording: Track FX now applied to the monitor signal so
+                        what you hear matches playback.</li>
+                    <li>FX Latency Compensation: Tracks with latency-inducing FX (AutoTune, Harmonic)
+                        now align with other tracks; recording write offset also corrected for
+                        overdubs.</li>
+                    <li>Single-track clear now preserves bar settings (resets only when all tracks
+                        cleared).</li>
+                    <li>Unified dialog headers.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed touch overlay offset and stale strokes on toggle.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.4.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Noise Gate: Real-time noise gate with threshold, release, and range controls.
+                        Applies to all recordings for cleaner audio capture.</li>
+                    <li>Touch Visualization: Redesigned overlay with gesture-aware indicators (tap,
+                        long press, drag). "Always show touches" option to display indicators even
+                        when not recording.</li>
+                    <li>Processing Queue: Video processing status with progress bar in Recording
+                        settings.</li>
+                    <li>Cache Management: View cache space used and clear cache from Recording
+                        settings.</li>
+                    <li>Background Processing: Video/audio processing now survives app exit via
+                        foreground service.</li>
+                    <li>3-2-1 Countdown: Countdown before screen recording starts.</li>
+                    <li>Charging Indicator: Lightning bolt icon in battery indicator when charging.
+                    </li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Max bar count increased to 32.</li>
+                    <li>Video recording quality improved with H264 High profile and higher bitrate.
+                    </li>
+                    <li>Performance HUD now shows total app memory (PSS), raw CPU usage, and audio
+                        xrun counter.</li>
+                    <li>Settings and FX dialogs remember last tab and scroll position.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed track count setting not being remembered across app restarts.</li>
+                    <li>Fixed square background appearing behind circular main track ring.</li>
+                    <li>Fixed audio crackle on loud recordings (replaced hard-clipping with soft
+                        limiter).</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.3.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Added Window knob to the Harmonic effect (Single and Harmony modes). Adjusts
+                        the pitch shifter's grain window size (10-50ms) to trade latency vs artifact
+                        smoothness. Smaller values reduce track delay; larger values reduce wrap
+                        artifacts.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed video recording showing no progress indicator or stop button.</li>
+                    <li>Fixed harmonic effect delaying the entire track and causing it to fall out of
+                        sync with other tracks.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.2.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Overdub Low-cut: Optional HPF on incoming overdub signal to prevent
+                        low-frequency buildup when stacking layers. Includes auto 8ms fade-in on new
+                        layers to eliminate clicks.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed calibration failing with wired headphones: now falls back to
+                        hardware-measured latency when no acoustic echo is detected.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.1.0</summary>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Waveform Display: Replaced thin radial bars with a smooth filled waveform
+                        shape for a cleaner look.</li>
+                    <li>First Recording: No longer prepends silence from pre-record backfill; latency
+                        compensation still applies for overdubbing.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed calibration over-measuring latency due to room reflection outliers (now
+                        uses median instead of mean).</li>
+                    <li>Fixed calibrated latency including acoustic speaker-to-mic path not present
+                        during normal looping (now capped at auto estimate).</li>
+                    <li>Fixed calibration dialog appearing frozen between capture and result.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 2.0.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Bar Offset Control: Shift the start point of multi-bar tracks to create
+                        polyrhythms and phase patterns. Undo/Redo buttons double as bar-shift arrows
+                        on eligible tracks.</li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Improved Harmonic Effect: Replaced Soundpipe pitch shifter with custom
+                        granular/doubler engines for higher quality harmonizer output.</li>
+                    <li>Improved Smart Loop Alignment: Better timing accuracy for loop recording.
+                    </li>
+                    <li>Improved Latency Calibration: More accurate audio latency compensation.</li>
+                    <li>Performance HUD: Meter text now renders before the pill bar to prevent
+                        clipping on all devices.</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed MIDI mute key always triggering quantized (hold) mode instead of
+                        immediate mute on quick tap.</li>
+                    <li>Fixed per-track effect chain not processing in user-defined order.</li>
+                    <li>Fixed record head indicator position for tracks with different bar counts.
+                    </li>
+                    <li>Improved controller mapping: toggle assignment mode, prevent duplicate key
+                        assignments, isolate mapping modes.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 1.17.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Full Controller Support: Connect MIDI devices (USB/Bluetooth), keyboards, or
+                        game controllers to control the app.</li>
+                    <li>Custom Mappings: Map actions like Record, Mute, Clear, and Undo/Redo to any
+                        button. (FX control is planned for a future update.)</li>
+                    <li>Controller Settings Tab: A new tab in Settings to manage devices, presets,
+                        and mappings.</li>
+                    <li>Mapping Modes: Single Track (one set of controls for selected track) or All
+                        Tracks (dedicated buttons for each track).</li>
+                    <li>Visual Feedback: Selected track shows a yellow border.</li>
+                    <li>Presets: Save and load controller configurations.</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 1.16.1</summary>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed 'Reset Track' and 'Reset All' buttons not fully resetting effect
+                        parameters (knobs)</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 1.16.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Added more audio effects</li>
+                    <li>Reorderable FX effect chain – drag to reorder effects</li>
+                    <li>(Beta) Smart loop alignment option, enabled by default</li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Recording now starts on press-down instead of release</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed tutorial dialog not being scrollable</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 1.15.0</summary>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Improved audio effect quality</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed real-time waveform visualization displaying incorrectly when track bars
+                        &gt; 1</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Version 1.14.0</summary>
+                <p class="group">New Features</p>
+                <ul>
+                    <li>Real-time waveform visualization while recording</li>
+                </ul>
+                <p class="group">Improvements</p>
+                <ul>
+                    <li>Improved audio looping performance</li>
+                </ul>
+                <p class="group">Bug Fixes</p>
+                <ul>
+                    <li>Fixed per-track input device selection not working</li>
+                    <li>Fixed custom metronome value input issues</li>
+                </ul>
+            </details>
+            </details>
         </section>
 
         <section id="licenses">

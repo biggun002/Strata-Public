@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strata Live Loop - User Manual</title>
     <meta name="description" content="Complete user manual for Strata Live Loop, the multi-track audio looper for Android.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
-            --primary: #FF4444;
-            --bg: #121212;
-            --surface: #1E1E1E;
-            --text: #E0E0E0;
-            --text-secondary: #AAAAAA;
+            /* Palette mirrors the app's default dark theme (LooperTheme.kt) */
+            --primary: #6366F1;
+            /* Default app accent — user-changeable in Settings */
+            --primary-hover: #8184F7;
+            --bg: #0A0A0F;
+            --surface: #14141F;
+            --surface-variant: #1C1C2A;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #F0F0F5;
+            --text-secondary: #B8B8C8;
+            --accent-cyan: #22D3EE;
+            --accent-pink: #F472B6;
         }
 
         body {
@@ -35,10 +43,18 @@
             text-align: center;
         }
 
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 22%;
+            margin-bottom: 14px;
+            box-shadow: 0 5px 22px rgba(99, 102, 241, 0.28);
+        }
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            color: #fff;
+            color: var(--text);
         }
 
         .subtitle {
@@ -48,6 +64,7 @@
 
         .version-bar {
             background-color: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 16px 24px;
             margin-bottom: 30px;
@@ -59,7 +76,7 @@
         }
 
         .version-bar strong {
-            color: #fff;
+            color: var(--text);
         }
 
         .btn {
@@ -74,11 +91,12 @@
         }
 
         .btn:hover {
-            opacity: 0.9;
+            background-color: var(--primary-hover);
         }
 
         nav.toc {
             background-color: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px 30px;
             margin-bottom: 30px;
@@ -107,6 +125,7 @@
 
         section {
             background-color: var(--surface);
+            border: 1px solid var(--border);
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 30px;
@@ -114,12 +133,12 @@
 
         h2 {
             margin-top: 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
         }
 
         h3 {
-            color: #fff;
+            color: var(--text);
             margin-bottom: 6px;
         }
 
@@ -131,7 +150,7 @@
         figure img {
             max-width: 100%;
             border-radius: 12px;
-            background: #000;
+            background: var(--bg);
         }
 
         figure.phone img {
@@ -184,7 +203,7 @@
             border-left: 3px solid var(--primary);
             padding: 8px 16px;
             margin: 16px 0;
-            background: rgba(255, 68, 68, 0.07);
+            background: rgba(99, 102, 241, 0.07);
             border-radius: 0 8px 8px 0;
         }
 
@@ -198,7 +217,7 @@
         table.keys th {
             text-align: left;
             padding: 8px 10px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
             vertical-align: top;
         }
 
@@ -212,7 +231,7 @@
         }
 
         .changelog-ver h3 {
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
             padding-bottom: 6px;
         }
 
@@ -242,13 +261,14 @@
 <body>
     <div class="container">
         <header>
+            <img src="images/logo.jpg" alt="Strata Looper logo" class="logo">
             <h1>Strata Live Loop</h1>
             <p class="subtitle">User Manual</p>
         </header>
 
         <div class="version-bar">
             <span><strong>Manual</strong> v1.0</span>
-            <span><strong>Covers app</strong> v2.7.0</span>
+            <span><strong>Covers app</strong> v2.8.0</span>
             <span><a href="https://play.google.com/store/apps/details?id=com.any.th.strata_live_loop">Get the latest version on Google Play</a></span>
         </div>
 
@@ -718,10 +738,8 @@
             <figure class="phone">
                 <img src="images/manual/dialog-tutorial.png" alt="Tutorial dialog">
             </figure>
-            <p>The <strong>?</strong> button at the end of the top bar opens the built-in tutorial:
-                <em>Getting Started</em>, <em>Playback &amp; Mute</em>, and <em>Advanced</em> quick help.
-                It also appears on first launch (dismiss permanently with <em>Don't show again</em>).</p>
-            <p>The tutorial footer contains the <strong>Full Manual</strong> button, which opens this page.</p>
+            <p>The <strong>?</strong> button at the end of the top bar opens the built-in tutorial.</p>
+            <p>Tap <strong>Open Manual</strong> at the top to open this page.</p>
         </section>
 
         <section id="changelog">
@@ -729,19 +747,16 @@
             <p>Each app release updates this manual. Entries below link new UI to the section that
                 documents it.</p>
 
-            <div class="changelog-ver" id="v2-7-0">
-                <h3>v1.0 &mdash; covers app 2.7.0</h3>
+            <div class="changelog-ver" id="v2-8-0">
+                <h3>v1.0 &mdash; covers app 2.8.0</h3>
                 <ul>
                     <li>Initial manual covering the full app.</li>
-                    <li>New in 2.7.0 &mdash; <a href="#projects">Projects</a> (save/load sessions),
-                        <a href="#effects">5-band EQ and effect-chain reorder</a>, Auto-Tune key/scale
-                        detection, muted ad start.</li>
                 </ul>
             </div>
         </section>
 
         <footer>
-            <p>Manual v1.0 &middot; for Strata Live Loop 2.7.0 &middot;
+            <p>Manual v1.0 &middot; for Strata Live Loop 2.8.0 &middot;
                 <a href="index.html">Back to home</a></p>
         </footer>
     </div>
